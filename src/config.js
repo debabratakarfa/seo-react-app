@@ -1,5 +1,5 @@
 export const API = {
-  'wpUrl': 'http://local.wordpress.test/wp-json',
+  'wpUrl': 'https://wordpress.deb.im/wp-json',
   'endPoint' : {
     'post': '/wp/v2/posts'
   }
