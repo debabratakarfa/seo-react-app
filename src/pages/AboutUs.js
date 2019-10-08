@@ -6,6 +6,7 @@ import { API } from '../config';
 export default class extends Component {
   state = {
     pageContent: [],
+    loading: true,
   };
 
   componentDidMount() {
@@ -13,7 +14,7 @@ export default class extends Component {
     wp.pages().id( 2 )
       .then(( data ) => {
         // do something with the returned posts
-        this.setState({ pageContent: data });
+        this.setState({ pageContent: data, loading: false });
       })
       .catch(( err ) => {
         // handle error
@@ -22,10 +23,15 @@ export default class extends Component {
   }
 
   render() {
-    return (
+    return this.state.loading ? (
+      <p>loading...</p>
+    ) : (
       <div>
-        <Seo title={this.state.pageContent.slug} />
-        <h2>{this.state.pageContent.slug}</h2>
+        <Seo title={this.state.pageContent.title.rendered} />
+        <h2>{this.state.pageContent.title.rendered}</h2>
+        <div className="contentSection">
+          {this.state.pageContent.content.rendered}
+        </div>
       </div>
     );
   }

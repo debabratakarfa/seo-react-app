@@ -2,28 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import WPAPI from 'wpapi';
 import { withRouter } from 'react-router-dom';
+import _ from 'lodash';
 import Seo from '../component/Seo';
 import { API } from '../config';
 
 class BlogSinglePage extends React.Component {
 
-  static propTypes = {
-    match: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
-  }
-
   state = {
     post: {},
+    loading: true,
   };
 
-  componentDidMount() {
-    const { match, location, history } = this.props;
+  static propTypes = {
+    'match': PropTypes.object.isRequired
+  }
+
+  async componentDidMount(): Promise<void> {
+    const { match } = this.props;
     const wp = new WPAPI({ endpoint: API.wpUrl });
-    wp.posts().id(match.params.id)
+    await wp.posts().id(match.params.id)
       .then(( data ) => {
         // do something with the returned posts
-        this.setState({ post: data });
+        this.setState({ post: data, loading: false });
       })
       .catch(( err ) => {
         // handle error
@@ -32,13 +32,17 @@ class BlogSinglePage extends React.Component {
   }
 
   render() {
-    const { match, location, history } = this.props
-    { console.log(this.state.post);}
-    return (
+    return this.state.loading ? (
+      <p>loading...</p>
+    ) : (
       <div>
-        {this.state.post.slug}
+        <Seo title={this.state.post.title.rendered} />
+        <h2>{this.state.post.title.rendered}</h2>
+        <div className="contentSection">
+          {this.state.post.content.rendered}
+        </div>
       </div>
-    )
+    );
   }
 }
 

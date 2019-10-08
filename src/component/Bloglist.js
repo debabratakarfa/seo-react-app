@@ -30,7 +30,7 @@ export default class extends Component {
             {
               this.state.posts.map(post => (
                 <li key={post.id}>
-                  <Link to={`/blog/${post.id}`}>{post.title.rendered}</Link>
+                  <Link to={`/blog/${post.slug}/${post.id}`}>{post.title.rendered}</Link>
                 </li>
               ))
             }

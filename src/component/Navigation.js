@@ -24,7 +24,7 @@ export default function Nav() {
         </nav>
 
         <Switch>
-          <Route path="/blog/:id">
+          <Route path="/blog/:name/:id">
             <BlogSinglePage />
           </Route>
           <Route path="/about">
