@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import WPAPI from 'wpapi';
 import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import Seo from '../component/Seo';
 import { API } from '../config';
+
 
 class BlogSinglePage extends React.Component {
 
@@ -39,7 +41,7 @@ class BlogSinglePage extends React.Component {
         <Seo title={this.state.post.title.rendered} />
         <h2>{this.state.post.title.rendered}</h2>
         <div className="contentSection">
-          {this.state.post.content.rendered}
+          { ReactHtmlParser( this.state.post.content.rendered ) }
         </div>
       </div>
     );

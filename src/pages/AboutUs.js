@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import WPAPI from 'wpapi';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import Seo from '../component/Seo';
 import { API } from '../config';
 
@@ -27,10 +28,13 @@ export default class extends Component {
       <p>loading...</p>
     ) : (
       <div>
-        <Seo title={this.state.pageContent.title.rendered} />
+        <Seo
+          title={this.state.pageContent.title.rendered}
+          description={this.state.pageContent.excerpt.rendered}
+        />
         <h2>{this.state.pageContent.title.rendered}</h2>
         <div className="contentSection">
-          {this.state.pageContent.content.rendered}
+          { ReactHtmlParser( this.state.pageContent.content.rendered ) }
         </div>
       </div>
     );
