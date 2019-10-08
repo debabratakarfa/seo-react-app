@@ -1,10 +1,12 @@
 import React from 'react';
+// import Seo from './component/Seo';
+import Nav from './component/Navigation';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1 className="test">Welcome</h1>
+      <Nav />
     </div>
   );
 }
