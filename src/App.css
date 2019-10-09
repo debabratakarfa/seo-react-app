@@ -67,10 +67,16 @@
 }
 .blogList__link {
   width: 600px;
-  max-width: 100%s;
+  max-width: 100%;
 }
 
 .blogList__link li {
   text-align: left;
 }
 
+.contentSection {
+  margin: 0 auto;
+  text-align: left;
+  width: 720px;
+  max-width: 100%;
+}
