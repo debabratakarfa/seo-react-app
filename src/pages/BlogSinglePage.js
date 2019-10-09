@@ -14,7 +14,7 @@ class BlogSinglePage extends React.Component {
 
   async componentDidMount(): Promise<void> {
     const wp = new WPAPI({ endpoint: API.wpUrl });
-    await wp.posts().id(this.params.id)
+    await wp.posts().id(this.props.params.id)
       .then(( data ) => {
         // do something with the returned posts
         this.setState({ post: data, loading: false });
@@ -34,8 +34,8 @@ class BlogSinglePage extends React.Component {
           title={this.state.post.title.rendered}
           description={this.state.post.excerpt.rendered}
         />
-        <h2>{this.state.post.title.rendered}</h2>
         <div className="contentSection">
+          <h2>{this.state.post.title.rendered}</h2>
           { ReactHtmlParser( this.state.post.content.rendered ) }
         </div>
       </div>
