@@ -1,6 +1,5 @@
 import React from 'react';
 import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
-// import Seo from './component/Seo';
 import Home from './pages/Home';
 import About from './pages/AboutUs';
 import BlogHomePage from './pages/BlogHomePage';
