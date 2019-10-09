@@ -80,3 +80,8 @@
   width: 720px;
   max-width: 100%;
 }
+
+.contentSection img {
+  max-width: 100%;
+  width: 720px;
+}
