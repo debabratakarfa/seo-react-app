@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div>
       <Seo />
-      <h2>Headless WordPress - React Example.</h2>
+      <h2>POC of SEO friendly Headless WordPress - React with React Helmet</h2>
     </div>
   );
 }
