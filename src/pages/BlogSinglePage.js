@@ -38,7 +38,10 @@ class BlogSinglePage extends React.Component {
       <p>loading...</p>
     ) : (
       <div>
-        <Seo title={this.state.post.title.rendered} />
+        <Seo
+          title={this.state.post.title.rendered}
+          description={this.state.post.excerpt.rendered}
+        />
         <h2>{this.state.post.title.rendered}</h2>
         <div className="contentSection">
           { ReactHtmlParser( this.state.post.content.rendered ) }
