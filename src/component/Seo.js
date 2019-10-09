@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet, HelmetProvider } from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 class Seo extends React.PureComponent {
   render() {
