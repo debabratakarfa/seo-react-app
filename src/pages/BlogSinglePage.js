@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import WPAPI from 'wpapi';
-import { withRouter } from 'react-router-dom';
-import _ from 'lodash';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 import Seo from '../component/Seo';
 import { API } from '../config';
 
@@ -15,14 +12,9 @@ class BlogSinglePage extends React.Component {
     loading: true,
   };
 
-  static propTypes = {
-    'match': PropTypes.object.isRequired
-  }
-
   async componentDidMount(): Promise<void> {
-    const { match } = this.props;
     const wp = new WPAPI({ endpoint: API.wpUrl });
-    await wp.posts().id(match.params.id)
+    await wp.posts().id(this.params.id)
       .then(( data ) => {
         // do something with the returned posts
         this.setState({ post: data, loading: false });
@@ -51,4 +43,4 @@ class BlogSinglePage extends React.Component {
   }
 }
 
-export default withRouter(BlogSinglePage);
+export default BlogSinglePage;

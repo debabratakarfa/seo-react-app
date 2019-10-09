@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import WPAPI from 'wpapi';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Link } from 'react-router';
 import { API } from '../config';
 
 export default class extends Component {
