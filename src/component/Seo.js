@@ -10,7 +10,7 @@ class Seo extends React.PureComponent {
           <meta name="description" content={this.props.description} />
           <meta property="og:title" content={this.props.title} />
           <meta name="keywords" content={this.props.keywords} />
-          <meta property="og:url" content={this.props.url} />
+          <meta property="og:url" content={this.props.ogUrl} />
           <meta property="og:title" content={this.props.title} />
           <meta property="og:description" content={this.props.description} />
           <meta property="og:type" content="website" />
@@ -34,9 +34,9 @@ class Seo extends React.PureComponent {
 
 Seo.defaultProps = {
   title: 'Homepage - App',
-  description: 'Homepage Content',
+  description: 'Homepage Content of Description',
   keywords: 'react, react helmet, homepage',
-  orUrl: 'https://condescending-hodgkin-164c46.netlify.com',
+  ogUrl: 'https://condescending-hodgkin-164c46.netlify.com',
   ogImage: 'https://cdn.rippling.com/static/marketing/covers/Homepage_headerimage.png',
   ogImageAlt: 'Running Athlete with Code in Foreground',
   twitterHander: '@ripplingapp',
