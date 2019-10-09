@@ -25,7 +25,6 @@ class Seo extends React.PureComponent {
         <meta name="twitter:image" content={this.props.ogImage} />
         <link rel="icon" href={this.props.logo} />
         <html lang="en" />
-        <script id="stripe-js" src="https://js.stripe.com/v3/" async />
       </Helmet>
     );
   }
